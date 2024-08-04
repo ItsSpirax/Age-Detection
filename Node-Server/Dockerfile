@@ -4,7 +4,7 @@ COPY . .
 RUN npm ci --silent && npm cache clean --force
 RUN npm run build
 
-FROM node:lts-alpine AS production
+FROM node:18-alpine AS production
 WORKDIR /usr/src/app
 COPY --from=builder /usr/src/app/.next ./.next
 COPY --from=builder /usr/src/app/public ./public

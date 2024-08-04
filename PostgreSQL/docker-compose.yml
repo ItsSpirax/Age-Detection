@@ -1,0 +1,18 @@
+services:
+    postgresql:
+        image: bitnami/postgresql:latest
+        restart: unless-stopped
+        ports:
+            - '2345:5432/tcp'
+        volumes:
+            - pg-data:/bitnami/postgresql
+        environment:
+            - POSTGRESQL_PGAUDIT_LOG=READ,WRITE
+            - POSTGRESQL_LOG_HOSTNAME=true
+            - POSTGRESQL_USERNAME=postgres
+            - POSTGRESQL_PASSWORD=<YOUR_PASSWORD>
+            - POSTGRESQL_DATABASE=age-detection
+
+volumes:
+    pg-data:
+        name: pg-data

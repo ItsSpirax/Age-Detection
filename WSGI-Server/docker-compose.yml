@@ -1,0 +1,7 @@
+services:
+    age-detection-wsgi:
+        container_name: age-detection-wsgi
+        restart: unless-stopped
+        ports:
+            - 5000:5000/tcp
+        image: spirax/age-detection-wsgi:latest

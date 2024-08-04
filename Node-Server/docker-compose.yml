@@ -1,0 +1,11 @@
+services:
+    age-detection-node:
+        image: spirax/age-detection-node:latest
+        restart: unless-stopped
+        ports:
+            - 3000:3000/tcp
+        volumes:
+            - ./.env:/usr/src/app/.env
+        environment:
+            NODE_ENV: production
+        command: sh -c "npm run start"
